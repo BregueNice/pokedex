@@ -38,13 +38,13 @@ main {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    padding: 20px 20px 5px 20px;
 }
 
 #pokedexSpace{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 20px 20px 5px 20px;
 }
 
 .poke_img {
@@ -58,6 +58,7 @@ main {
     border-radius: 15px;
     padding: 10px;
     color: aliceblue;
+    cursor: pointer;
 }
 
 #add_button{
@@ -68,7 +69,8 @@ main {
 
 .button_div{
     text-align: center;
-    padding-top: 10px;
+    padding: 10px;
+    display: block;
 }
 
 #dark-theme img{
@@ -91,4 +93,29 @@ main {
     position: absolute;
     top: 20px;
     right: 45px;
+}
+
+#pokemon-data{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    display: none;
+    padding: 10px;
+}
+
+.pokeStatus{
+    display: flex;
+    justify-content: space-between;
+}
+
+#pokeStatus__img{
+    width: 250px;
+    height: 250px;
+}
+
+.pokeStatus__items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
 }

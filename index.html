@@ -12,22 +12,37 @@
 <body>
 
     <img src="./assets/imagens/uma-paisagem-montanhosa-com-um-coracao-amarelo-no-topo.jpg" alt="" id="bg">
-        <main>
-            <div class="button-container">
-                <button id="dark-theme" onclick="tema()">
-                    <img src="./assets/imagens/moon.png" alt="" id="theme-img">
-                </button>
-            </div>
-            <div class="pokedex" id="pokedex">
-                <div id="pokedexSpace">
+    <main>
+        <div class="button-container">
+            <button id="dark-theme" onclick="tema()">
+                <img src="./assets/imagens/moon.png" alt="" id="theme-img">
+            </button>
+        </div>
+        <div class="pokedex" id="pokedex">
+            <div id="pokedexSpace">
 
-                </div>
+            </div>
 
-                <div class="button_div">
-                    <button type="button" id="add_button" onclick="mudar()">Show more</button>
+            <div class="button_div" id="button-div">
+                <button type="button" id="add_button" onclick="mudar()">Show more</button>
+            </div>
+            <div id="pokemon-data">
+                <button onclick="back()">Back</button>
+                <div class="pokeStatus">
+                    <div class="pokeStatus__items">
+                        <div>
+                            <img src="" alt="" id="pokeStatus__img">
+                        </div>
+                        <p id="pokeStatus__name">nome</p>
+                    </div>
+                    <div>
+                        <h2>types</h2>
+                        <h2>abilities</h2>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
 
     <script src="./index.js"></script>
