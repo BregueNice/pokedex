@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bg{
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    background-color: rgb(151, 0, 0);
+    max-width: 1000px;
+    width: 1000px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    position: absolute;
+}
+
+.pokedex {
+    background-color: aliceblue;
+    width: 90%;
+    height: 80%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 20px 20px 5px 20px;
+}
+
+#pokedexSpace{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.poke_img {
+    width: 150px;
+    height: 150px;
+}
+
+.pokemon {
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    color: aliceblue;
+}
+
+#add_button{
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.button_div{
+    text-align: center;
+    padding-top: 10px;
+}
+
+#dark-theme img{
+    width: 30px;
+    height: 30px;
+}
+
+#dark-theme{
+    background: transparent;
+    border: none;
+}
+
+#dark-theme img:hover{
+    transform: scale(1.2);
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+}
+
+.button-container{
+    position: absolute;
+    top: 20px;
+    right: 45px;
+}
