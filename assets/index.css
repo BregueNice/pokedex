@@ -31,7 +31,8 @@ main {
 }
 
 .pokedex {
-    background-color: aliceblue;
+    background: url('./imagens/pokedexBg.jpg') no-repeat;
+    background-size: cover;
     width: 90%;
     height: 80%;
     box-sizing: border-box;
@@ -118,4 +119,9 @@ main {
     flex-direction: column;
     align-items: center;
     font-size: 26px;
+}
+
+.bgChange{
+    background: none;
+    background-color: rgb(122, 109, 109);
 }

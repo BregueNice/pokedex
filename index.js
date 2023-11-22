@@ -7,6 +7,7 @@ let pokeData = document.getElementById('pokemon-data');
 let buttonDiv = document.getElementById('button-div');
 let pokeImg = document.getElementById('pokeStatus__img');
 let pokeName = document.getElementById('pokeStatus__name');
+let pokeBG = document.getElementById('pokedex');
 
 async function pokedex() {
     let conexao = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${a}&limit=${b}`)
@@ -43,6 +44,7 @@ function mudar() {
 }
 
 function tema() {
+    pokeBG.classList.toggle("bgChange");
     if (themeImg.outerHTML === '<img src="./assets/imagens/moon.png" alt="" id="theme-img">') {
         themeImg.setAttribute('src', './assets/imagens/sun.png')
         bg.setAttribute('src', "./assets/imagens/por-do-sol-e-silhuetas-de-arvores-nas-montanhas-generative-ai.jpg")
@@ -50,7 +52,7 @@ function tema() {
         themeImg.setAttribute('src', './assets/imagens/moon.png')
         bg.setAttribute('src', "./assets/imagens/uma-paisagem-montanhosa-com-um-coracao-amarelo-no-topo.jpg")
     }
-
+    
 }
 
 function pokemonStatus(obj) {
@@ -61,7 +63,7 @@ function pokemonStatus(obj) {
         let conexao2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${obj.id}
         `)
         let conexao22 = await conexao2.json();
-    
+
         console.log(conexao22);
 
         pokeImg.setAttribute('src', `${conexao22.sprites.front_default}`)
@@ -70,7 +72,7 @@ function pokemonStatus(obj) {
     conexao2();
 }
 
-function back(){
+function back() {
     pokedexSpace.style.display = "flex";
     buttonDiv.style.display = "block";
     pokeData.style.display = "none";
