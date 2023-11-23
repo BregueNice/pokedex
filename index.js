@@ -8,6 +8,7 @@ let buttonDiv = document.getElementById('button-div');
 let pokeImg = document.getElementById('pokeStatus__img');
 let pokeName = document.getElementById('pokeStatus__name');
 let pokeBG = document.getElementById('pokedex');
+let pokeMovesSpace = document.getElementById('pokeMoves');
 
 async function pokedex() {
     let conexao = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${a}&limit=${b}`)
@@ -53,7 +54,8 @@ function mudar() {
 
 function tema() {
     pokeBG.classList.toggle("bgChange");
-    if (themeImg.outerHTML === '<img src="./assets/imagens/moon.png" alt="" id="theme-img">') {
+    pokeData.classList.toggle("bgChange");
+    if (themeImg.outerHTML === '<img src="./assets/imagens/moon.png" alt="" id="theme-img">' || pokeData.outerHTML === '<img src="./assets/imagens/moon.png" alt="" id="theme-img"') {
         themeImg.setAttribute('src', './assets/imagens/sun.png')
         bg.setAttribute('src', "./assets/imagens/por-do-sol-e-silhuetas-de-arvores-nas-montanhas-generative-ai.jpg")
     } else {
@@ -72,11 +74,13 @@ function pokemonStatus(obj) {
         `)
         let conexao22 = await conexao2.json();
 
-        // console.log(conexao22.sprites.versions["generation-v"]["black-white"].animated.front_default
-        // );
+        console.log(conexao22);
 
         pokeImg.setAttribute('src', `${conexao22.sprites.versions["generation-v"]["black-white"].animated.front_default}`)
         pokeName.innerText = `${conexao22.name}`
+        conexao22.moves.forEach((move)=>{
+            pokeMovesSpace.innerHTML += `<li>${move.move.name}</li>`
+        })
     }
     conexao2();
 }
@@ -86,4 +90,5 @@ function back() {
     buttonDiv.style.display = "block";
     pokeData.style.display = "none";
     pokeImg.setAttribute('src', "")
+    pokeMovesSpace.innerHTML = ""
 }
