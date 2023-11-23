@@ -20,11 +20,19 @@ async function pokedex() {
             let conexao1 = await fetch(`${a.url}`);
             let conexaoConvertida1 = await conexao1.json();
 
+            let type1 = conexaoConvertida1.types[0].type.name
+            let type2 = conexaoConvertida1.types[0].type.name
+
+            if(conexaoConvertida1.types.length > 1){
+                type2 = conexaoConvertida1.types[1].type.name
+            }if(conexaoConvertida1.types.length < 2){
+                type2 = conexaoConvertida1.types[0].type.name
+            }
 
             pokedexSpace.innerHTML += `
-                <div class="pokemon" style="background-color: blue" onclick="pokemonStatus(this)" id="${pokemon.name}">
-                <img src='${conexaoConvertida1.sprites.front_default}' class="poke_img"/>
-                <br><p>${pokemon.name}</p>
+                <div class="pokemon" style="background: linear-gradient(to right, var(--${type1}), var(--${type2}));" onclick="pokemonStatus(this)" id="${pokemon.name}">
+                <img src='${conexaoConvertida1.sprites.versions["generation-v"]["black-white"].animated.front_default}' class="poke_img"/>
+                <br><p class="poke-name">${pokemon.name}</p>
                 </div>
                  `
         }
@@ -52,7 +60,7 @@ function tema() {
         themeImg.setAttribute('src', './assets/imagens/moon.png')
         bg.setAttribute('src', "./assets/imagens/uma-paisagem-montanhosa-com-um-coracao-amarelo-no-topo.jpg")
     }
-    
+
 }
 
 function pokemonStatus(obj) {
@@ -64,9 +72,10 @@ function pokemonStatus(obj) {
         `)
         let conexao22 = await conexao2.json();
 
-        console.log(conexao22);
+        // console.log(conexao22.sprites.versions["generation-v"]["black-white"].animated.front_default
+        // );
 
-        pokeImg.setAttribute('src', `${conexao22.sprites.front_default}`)
+        pokeImg.setAttribute('src', `${conexao22.sprites.versions["generation-v"]["black-white"].animated.front_default}`)
         pokeName.innerText = `${conexao22.name}`
     }
     conexao2();
