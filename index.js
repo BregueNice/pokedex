@@ -74,7 +74,7 @@ function pokemonStatus(obj) {
         `)
         let conexao22 = await conexao2.json();
 
-        console.log(conexao22);
+        // console.log(conexao22);
 
         pokeImg.setAttribute('src', `${conexao22.sprites.versions["generation-v"]["black-white"].animated.front_default}`)
         pokeName.innerText = `${conexao22.name}`
