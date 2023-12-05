@@ -26,6 +26,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-principal);
+    color: rgb(39, 35, 35);
 }
 
 body {
@@ -189,6 +190,31 @@ main {
     font-size: 15px;
     color: white;
     font-weight: 700;
+}
+
+.status__types{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 10px;
+}
+
+#pokeTypes{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.pokeStatus__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.pokeTypes__type{
+    border-radius: 15px;
+    padding: 5px 15px;
 }
 
 @media screen and (min-width: 375px) and (max-width: 1440px) {

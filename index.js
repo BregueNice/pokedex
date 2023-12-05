@@ -9,12 +9,13 @@ let pokeImg = document.getElementById('pokeStatus__img');
 let pokeName = document.getElementById('pokeStatus__name');
 let pokeBG = document.getElementById('pokedex');
 let pokeMovesSpace = document.getElementById('pokeMoves');
+let pokeTypes = document.getElementById('pokeTypes');
 
 async function pokedex() {
     let conexao = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${a}&limit=${b}`)
     let conexaoConvertida = await conexao.json();
 
-    // console.log(conexaoConvertida);
+    console.log(conexaoConvertida);
 
     conexaoConvertida.results.forEach(pokemon => {
         async function pokedex1(a) {
@@ -24,9 +25,9 @@ async function pokedex() {
             let type1 = conexaoConvertida1.types[0].type.name
             let type2 = conexaoConvertida1.types[0].type.name
 
-            if(conexaoConvertida1.types.length > 1){
+            if (conexaoConvertida1.types.length > 1) {
                 type2 = conexaoConvertida1.types[1].type.name
-            }if(conexaoConvertida1.types.length < 2){
+            } if (conexaoConvertida1.types.length < 2) {
                 type2 = conexaoConvertida1.types[0].type.name
             }
 
@@ -74,12 +75,15 @@ function pokemonStatus(obj) {
         `)
         let conexao22 = await conexao2.json();
 
-        // console.log(conexao22);
+        // console.log(conexao22.types);
 
         pokeImg.setAttribute('src', `${conexao22.sprites.versions["generation-v"]["black-white"].animated.front_default}`)
         pokeName.innerText = `${conexao22.name}`
-        conexao22.moves.forEach((move)=>{
+        conexao22.moves.forEach((move) => {
             pokeMovesSpace.innerHTML += `<li>${move.move.name}</li>`
+        })
+        conexao22.types.forEach((type) => {
+            pokeTypes.innerHTML += `<li class="pokeTypes__type" style="background-color: var(--${type.type.name})">${type.type.name}</li>`
         })
     }
     conexao2();
@@ -91,4 +95,5 @@ function back() {
     pokeData.style.display = "none";
     pokeImg.setAttribute('src', "")
     pokeMovesSpace.innerHTML = ""
+    pokeTypes.innerHTML = ""
 }
